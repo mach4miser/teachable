@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+        <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+        <title>CodePen - Lowpoly Dynamic Background</title>
+        <style>
+          html,body{
+          height:100%;
+          overflow:hidden;
+        }
+        body{
+          background:#E1D38A;
+          background-size:cover;
+          font-family:sans-serif;
+          text-align:center;
+          padding-top:20%
+        }
+        
+        .content {
+            width: 400px;
+            background: #fff;
+            padding: 30px;
+            text-align: center;
+            z-index: 995;
+          box-shadow:0 3px 36px 0 rgba(0, 0, 0, 0.6);
+          display:inline-block;
+          opacity:0.7;
+          color:#666;
+          text-decoration:none;
+          transition:all 0.2s
+        }
+        
+        .content:hover{
+          box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.3);
+          padding:40px;
+          margin-top:-10px;
+          color:#444
+        }
+        </style>
+        <script>
+          window.console = window.console || function(t) {};
+        </script>
+        <script>
+          if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+          }
+        </script>
+        </head>
+        
+        <a class="content" href="javascript:history.go(0)">
+        <h2>Change Background</h2> </a>
+        <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script id="rendered-js">
+              //by @nodws
+        /*
+        Using trianglify.js and d3.js library
+        Also not possible without Tim Berners Lee creator of the www, Brendan Eich creator of javascript, Michael S. Dell founder of Dell Computer who manufactured my PC, my Mom and Dad who manufactured me and The BigBang creator of the universe.
+        Hope these credits are enough  to satisfy my impostor syndrome 
+        */
+        //Click to change bg
+        var rn = Math.floor(Math.random() * 150 + 60);
+        var rs = Math.floor(Math.random() * 11 + 4);
+        var t = new Trianglify({
+          x_gradient: Trianglify.colorbrewer.Spectral[rs],
+          noiseIntensity: 0,
+          cellsize: rn });
+        
+        var pattern = t.generate(window.innerWidth, window.innerWidth + 200);
+        document.body.setAttribute('style', 'background-image: ' + pattern.dataUrl);
+              //# sourceURL=pen.js
+            </script>
+        
+        
+        </body></html>
